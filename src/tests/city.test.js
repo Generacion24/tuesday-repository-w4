@@ -30,3 +30,16 @@ test("GET ONE -> '/api/v1/cities/:id', should return status code 200", async()=>
     expect(res.status).toBe(200)
     expect(res.body.name).toBe("Cordoba")
 })
+
+test("PUT -> `/api/v1/cities/:id`, should return status code 200 & res.body.name = city.name", async()=>{
+    const city =  {
+        name:"Cordoba"
+    }
+    const res = await supertest(app)
+        .put(`/api/v1/cities/${cityId}`)
+        .send(city)
+
+    expect(res.status).toBe(200)
+    expect(res.body.name).toBe(city.name)
+
+})

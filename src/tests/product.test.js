@@ -46,3 +46,8 @@ test("PUT -> `/api/v1/products/:id`, should return status code and res.body.name
     expect(res.body.name).toBe(product.name)
 })
 
+test("DELETE -> `/api/v1/products/:id`, should return status code 204", async()=>{
+    const res = await supertest(app).delete(`/api/v1/products/${productId}`)
+    expect(res.status).toBe(204)
+})
+
