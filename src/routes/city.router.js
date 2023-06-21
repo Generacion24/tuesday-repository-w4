@@ -4,7 +4,7 @@ const express = require('express');
 const routerCity = express.Router();
 
 routerCity.route('/')
-    .get(getAll)
+    .get(getAll) 
     .post(create);
 
 routerCity.route('/:id')
